@@ -6,21 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aesop</title>
 
-    <!-- reset cdn -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
-    />
-    <!-- link to style.css -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- favicon -->
-    <link rel="icon" href="favicon.ico" />
-
     <!-- icon -->
     <script
       src="https://kit.fontawesome.com/808a41e94e.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- gsap -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"
+      integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q=="
+      crossorigin="anonymous"
+    ></script>
+
     <!-- swiper -->
     <link
       rel="stylesheet"
@@ -28,8 +31,20 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
+    <!-- reset cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+
+    <!-- link to style.css -->
+    <link rel="stylesheet" href="style.css" />
+
     <!-- link to main.js -->
     <script defer src="main.js"></script>
+
+    <!-- favicon -->
+    <link rel="icon" href="favicon.ico" />
   </head>
   <body>
     <header>
@@ -903,46 +918,45 @@
                 현재 위치에서 찾기
               </button>
               <strong>또는 도로명으로 검색</strong>
-              <div class="store__input">
-                <input type="text" placeholder="또는 도로명으로 검색" />
-                <svg
-                  class="Icon Panel-input--searchIcon"
-                  role="img"
-                  viewBox="0 0 50 50"
-                  aria-labelledby="505a5de4-2c6f-4f46-afae-2addb7350d32"
-                >
-                  <title id="505a5de4-2c6f-4f46-afae-2addb7350d32">
-                    매장 검색
-                  </title>
-                  <g>
-                    <path
-                      d="M30.1,5.3L50,25.1L30.1,45h-6.6l18-17.6H0v-4.8h41.5l-18-17.6h6.6V5.3z"
-                    ></path>
-                  </g>
-                </svg>
+              <div class="search-form">
+                <label for="search__input">
+                  <span>또는 도로명으로 검색</span>
+                  <input type="text" id="search__input" name="store-search" />
+                  <svg
+                    class="Icon Panel-input--searchIcon"
+                    role="img"
+                    viewBox="0 0 50 50"
+                    aria-labelledby="505a5de4-2c6f-4f46-afae-2addb7350d32"
+                  >
+                    <title id="505a5de4-2c6f-4f46-afae-2addb7350d32">
+                      매장 검색
+                    </title>
+                    <g>
+                      <path
+                        d="M30.1,5.3L50,25.1L30.1,45h-6.6l18-17.6H0v-4.8h41.5l-18-17.6h6.6V5.3z"
+                      ></path>
+                    </g>
+                  </svg>
+                </label>
               </div>
             </div>
           </div>
 
           <!-- s: 검색 -->
           <div class="gnb-main-area search">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam
-            maiores sapiente dolore? Beatae porro asperiores cumque iure ex
-            sapiente itaque autem officia unde. Adipisci ullam magni, ea modi
-            quos tempora?
-            <div class="gnb-main-content">
+            <div class="gnb-main-content search">
               <div class="logo">
                 <svg
                   aria-labelledby="aesop-1129"
                   class="Icon-module_base__jrPbu Icon-module_dark__3bVJI Logo-module_icon__2mAWS rb-zeplin-selected"
                   data-testid="data-testid-Icon"
                   focusable="false"
-                  height="40"
+                  height="32"
                   role="img"
                   tabindex="-1"
                   viewBox="0 0 489.7 154.3"
-                  width="120"
-                  style="height: 40px; width: 120px"
+                  width="100"
+                  style="height: 32px; width: 100px"
                 >
                   <title id="aesop-1129">aesop</title>
                   <g>
@@ -971,27 +985,36 @@
                   </g>
                 </svg>
               </div>
-              <ul class="gnb-main-content-txt">
-                <li></li>
-              </ul>
-              <ul class="gnb-main-content-txt">
-                <div class="gnb-main-content-txt-one">
-                  <li></li>
-                </div>
-                <div class="gnb-main-content-txt-two">
-                  <li></li>
-                </div>
-              </ul>
-              <ul class="gnb-main-content-txt">
-                <li></li>
-              </ul>
-              <div class="gnb-main-content-bottom">
-                <p></p>
-                <h5></h5>
-                <img src="" alt="" />
+              <div class="search-form">
+                <label for="search__input">
+                  <input type="text" id="search__input" name="search-search" />
+                  <svg
+                    class="Icon Panel-input--searchIcon"
+                    role="img"
+                    viewBox="0 0 50 50"
+                    aria-labelledby="505a5de4-2c6f-4f46-afae-2addb7350d32"
+                  >
+                    <title id="505a5de4-2c6f-4f46-afae-2addb7350d32">
+                      매장 검색
+                    </title>
+                    <g>
+                      <path
+                        d="M30.1,5.3L50,25.1L30.1,45h-6.6l18-17.6H0v-4.8h41.5l-18-17.6h6.6V5.3z"
+                      ></path>
+                    </g>
+                  </svg>
+                </label>
+              </div>
+              <div class="search-word">
+                <ul class="search-word-area">
+                  <li>인기 검색어</li>
+                  <li><a href="javascript:void(0)">클렌저</a></li>
+                  <li><a href="javascript:void(0)">페뷸러스</a></li>
+                  <li><a href="javascript:void(0)">파슬리</a></li>
+                  <li><a href="javascript:void(0)">향수</a></li>
+                </ul>
               </div>
             </div>
-            <div class="gnb-main-img"></div>
           </div>
         </div>
       </div>
@@ -1454,7 +1477,11 @@
                 <label for="age">
                   <span></span> 본인은 만 14세 이상입니다 (필수)
                 </label>
+                <div class="error error__age">
+                  본인의 만 14세 이상 여부를 확인해주세요.
+                </div>
               </div>
+
               <div class="information-wrap">
                 <input
                   type="checkbox"
@@ -1465,13 +1492,18 @@
                 <label for="information">
                   <span></span> 개인정보수집 및 이용에 동의합니다 (필수)
                 </label>
+                <div class="error error__info">
+                  이메일을 통한 광고성 정보 수신을 원하시는 경우 필수 항목입니다
+                </div>
+                <p class="information-bottom">
+                  이솝은 이솝의 제품, 서비스 및 홍보 행사 관련 정보를 마케팅
+                  목적으로, 고객님이 동의 해지하시기 전까지, 고객님께 이메일로
+                  보내 드립니다. 마케팅 목적의 개인정보 수집 및 이용에 동의하지
+                  않으셔도 되고, 그러한 경우, 마케팅 정보를 수령하실 수
+                  없습니다.
+                </p>
               </div>
-              <p class="information-bottom">
-                이솝은 이솝의 제품, 서비스 및 홍보 행사 관련 정보를 마케팅
-                목적으로, 고객님이 동의 해지하시기 전까지, 고객님께 이메일로
-                보내 드립니다. 마케팅 목적의 개인정보 수집 및 이용에 동의하지
-                않으셔도 되고, 그러한 경우, 마케팅 정보를 수령하실 수 없습니다.
-              </p>
+
               <div class="marketing-wrap">
                 <input
                   type="checkbox"
@@ -1482,17 +1514,20 @@
                 <label for="marketing">
                   <span></span> 마케팅 정보 수신에 동의합니다 (필수)
                 </label>
+                <div class="error error__ad">
+                  이메일을 통한 광고성 정보 수신을 원하시는 경우 필수 항목입니다
+                </div>
+                <p class="marketing-bottom">
+                  뉴스레터 이메일을 통한 광고성 정보 수신에 동의합니다.
+                </p>
               </div>
-              <p class="marketing-bottom">
-                뉴스레터 이메일을 통한 광고성 정보 수신에 동의합니다.
-              </p>
+
               <div class="email">
                 <label for="email-write">
-                  <input id="email-write" type="text" />
+                  <input type="text" id="email-write" type="text" />
                   <span>이메일 주소</span>
                 </label>
-
-                <button type="submit">
+                <button type="button">
                   <svg
                     aria-labelledby="rightArrow-33"
                     class="Icon-module_base__oY2hZ Icon-module_light___ZYCI NewsLetterSignUpV2-signUpIcon light rb-zeplin-focused"
@@ -1513,6 +1548,9 @@
                     </g>
                   </svg>
                 </button>
+                <div class="error error__email">
+                  유효한 이메일 주소를 입력하세요
+                </div>
               </div>
             </form>
           </div>

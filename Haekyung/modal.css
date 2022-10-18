@@ -7,7 +7,6 @@
   width: 100%;
   height: 100%;
   background-color: transparent;
-  transition: 0.3s;
 }
 #banner-modal.modal-open {
   z-index: 2;
@@ -78,25 +77,24 @@
 .header-modal {
   display: none;
   position: absolute;
-  top: 0;
-  height: 100vh;
+  top: 80px;
   width: 100vw;
   z-index: 20;
+  /* transition: 0.5s; */
 }
 .header-modal.on {
   display: block;
-  padding-top: 80px;
+  height: 100%;
+  border-top: 0.5px solid rgba(51, 51, 51, 0.2);
 }
 .header-modal svg {
   position: absolute;
-  top: 170px;
+  top: 90px;
   left: 35px;
 }
 .header-modal .header-modal-menu {
   display: none;
   font-size: 16px;
-  height: 100%;
-  transition: all 1s;
 }
 .header-modal .header-modal-menu.open {
   display: block;
@@ -188,8 +186,8 @@
 }
 .header-modal .header-modal-menu .inner .detail {
   position: absolute;
-  bottom: -20px;
-  left: 35%;
+  bottom: 0;
+  left: 36%;
   width: 355px;
   display: flex;
   flex-direction: column;

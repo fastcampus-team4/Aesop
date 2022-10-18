@@ -56,7 +56,7 @@ body .msg img {
 }
 .shipping-banner .banner-inner #banner-btn p.banner-btn-content {
   font-size: 14px;
-  font-family: "Suisse Medium", sans-serif;
+  font-family: 'Suisse Medium', sans-serif;
 }
 .shipping-banner .banner-inner #banner-btn span.banner-btn-icon {
   fill: #fffef2;
@@ -66,7 +66,6 @@ body .msg img {
 
 /* HEADER */
 .header {
-  /* position: fixed; */
   z-index: 30;
   width: 100%;
   background-color: #333;
@@ -80,6 +79,7 @@ body .msg img {
   background-color: #fffef2;
   color: #333;
   border-bottom: 0.5px solid rgba(51, 51, 51, 0.2);
+  transition: 0.5s;
 }
 .header .header-inner {
   height: 80px;
@@ -670,7 +670,7 @@ body .msg img {
 /* FOOTER */
 .footer {
   background-color: #252525;
-  height: 100%;
+  /* height: 100%; */
   color: #fffef2;
   font-size: 14px;
 }
@@ -705,7 +705,7 @@ body .msg img {
   display: flex;
   align-items: center;
 }
-.footer .inner .inner-1 .communication input[type="checkbox"] {
+.footer .inner .inner-1 .communication input[type='checkbox'] {
   cursor: pointer;
   -webkit-appearance: none;
   width: 12px;
@@ -714,8 +714,8 @@ body .msg img {
   background-color: inherit;
   position: relative;
 }
-.footer .inner .inner-1 .communication input[type="checkbox"]:checked::before {
-  content: "\2713";
+.footer .inner .inner-1 .communication input[type='checkbox']:checked::before {
+  content: '\2713';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -750,7 +750,7 @@ body .msg img {
 .footer .inner ul {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 .footer .inner .inner-1 .email-address {
   height: 37px;
@@ -761,6 +761,9 @@ body .msg img {
   display: flex;
   align-items: center;
   position: relative;
+}
+.footer .inner .inner-1 .email-address.error-on {
+  border: 1px solid #ea6956;
 }
 .footer .inner .inner-1 input#email-address {
   height: 37px;
@@ -790,6 +793,9 @@ body .msg img {
   padding-left: 10px;
   cursor: pointer;
 }
+.footer .inner .inner-1 .email-address button.error-on {
+  border-left: 1px solid #ea6956;
+}
 .footer .inner .inner-1 .location button {
   font-size: 14px;
   border: none;
@@ -807,6 +813,16 @@ body .msg img {
 }
 .footer .inner .inner-2 a.more {
   text-decoration: underline;
+}
+.footer .inner .error-msg {
+  display: none;
+  margin-top: 5px;
+  color: #ea6956;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.footer .inner .error-msg.error-on {
+  display: block;
 }
 .Aesop {
   font-size: 16px;

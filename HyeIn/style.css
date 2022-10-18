@@ -87,13 +87,23 @@ header {
   transition: 0.5s;
 }
 .head-bottom.fixed {
-  z-index: 100000000;
+  z-index: 100000000000;
   position: fixed;
-  top: 0;
   background-color: #fffef2;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+  color: #333;
+  fill: #333;
+  top: 0;
+}
+.head-bottom.scroll--fixed {
+  z-index: 100000000000;
+  position: fixed;
+  background-color: #fffef2;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
   color: #333;
   fill: #333;
 }
+
 .head-gnb {
   display: flex;
   justify-content: space-between;
@@ -110,6 +120,11 @@ header {
   line-height: 80px;
   font-size: 14px;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.head-gnb-wrap li.click {
+  border-bottom: 2px solid #333;
+  transition: border 0.5s;
 }
 .head-gnb-wrap i {
   font-size: 18px;
@@ -208,27 +223,27 @@ header {
 
 /* GNB-MAIN */
 .gnb-main {
-  position: fixed;
-  top: 80px;
+  position: absolute;
+  top: 81px;
   left: 0;
   width: 100vw;
   height: 0;
-
   opacity: 0;
-  transition: 0.3s;
+  background-color: #f7f1ec;
+  transition: 0.5s;
   z-index: -1000;
 }
 .gnb-main.open {
   height: calc(100vh - 80px);
-  opacity: 1;
   z-index: 1000;
+  opacity: 1;
+  position: fixed;
 }
 .gnb-main .gnb-main-area {
-  border-top: 1px solid rgba(51, 51, 51, 0.2);
   display: flex;
   position: fixed;
   width: inherit;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 81px);
   opacity: 0;
   visibility: hidden;
   transition: 0.5s;
@@ -398,9 +413,92 @@ header {
 .gnb-main-area.store .gnb-main-content.store button {
   margin-top: 30px;
   width: 210px;
+  font-size: 14px;
 }
-.store__input svg {
+.gnb-main-area.store .gnb-main-content.store strong {
+  margin-top: 31px;
+  font-size: 13px;
+  color: #333;
+  font-weight: bold;
+}
+.gnb-main-content.store .search-form {
+  margin-top: 20px;
+  padding-top: 40px;
+}
+
+/* SEARCH-FROM */
+.search-form label {
+  position: relative;
+  width: 560px;
+}
+.search-form span {
+  position: absolute;
+  bottom: 0;
+  color: #666;
+  font-size: 24px;
+  transition: 0.2s;
+}
+.search-form span.store--click {
+  bottom: 45px;
+  font-size: 14px;
+}
+.search-form #search__input {
+  width: inherit;
+  border: none;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+  background-color: transparent;
+  outline: none;
+  font-size: 24px;
+  transition: 0.2s;
+}
+.search-form #search__input:focus {
+  border-bottom: 1px solid black;
+}
+.search-form svg {
   width: 14px;
+  position: absolute;
+  bottom: 30%;
+  right: 0;
+}
+
+/* SEARCH */
+.gnb-main-area.search .gnb-main-content.search {
+  flex-direction: column;
+}
+.gnb-main-area.search .gnb-main-content.search .logo {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.gnb-main-area.search .gnb-main-content.search .search-word {
+  margin-top: 32px;
+}
+.gnb-main-area.search
+  .gnb-main-content.search
+  .search-word
+  .search-word-area
+  li {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #666;
+  position: relative;
+  left: -10px;
+  opacity: 0;
+}
+.gnb-main-area.search
+  .gnb-main-content.search
+  .search-word
+  .search-word-area
+  li:first-child {
+  margin-bottom: 25px;
+}
+.gnb-main-area.search
+  .gnb-main-content.search
+  .search-word
+  .search-word-area
+  li
+  a {
+  font-size: 24px;
 }
 
 /* CONTENT-BOTTOM */
@@ -565,9 +663,6 @@ header {
 
 .section1 .swiper .swiper-scrollbar .swiper-scrollbar-drag {
   background-color: rgba(0, 0, 0, 0.6);
-  /* transition-duration: 5s; 
-  scrollbar-drag 가 움직일 때의 duration 에 줘야 해서 안 먹는 듯
-  */
 }
 
 /* SECTION2 */
@@ -718,9 +813,6 @@ header {
 
 .section4 .swiper .swiper-scrollbar .swiper-scrollbar-drag {
   background-color: rgba(0, 0, 0, 0.6);
-  /* transition-duration: 5s; 
-  scrollbar-drag 가 움직일 때의 duration 에 줘야 해서 안 먹는 듯
-  */
 }
 
 /* SECTION5 */
@@ -841,11 +933,11 @@ footer {
   font-size: 14px;
   line-height: 28px;
 }
-.communication-form > p {
-  margin-bottom: 16px;
-}
-.age-wrap {
-  margin-bottom: 16px;
+.age-wrap,
+.information-wrap,
+.marketing-wrap,
+.email {
+  margin: 16px 0;
 }
 #age,
 #information,
@@ -878,37 +970,68 @@ label span {
   margin-top: 6px;
   margin-bottom: 17px;
 }
+.information-bottom {
+  height: 110px;
+  overflow-y: auto;
+}
+.email {
+  position: relative;
+}
 .email label {
   position: relative;
 }
+
 .email input {
-  width: 666px;
+  width: 100%;
   height: 37px;
   background-color: transparent;
   border: 1px solid #fffef2;
   border-right: none;
-  border-radius: 3px 0 0 3px;
+  border-radius: 3px;
   padding: 10px;
   vertical-align: bottom;
+  outline: none;
+  color: #fffef2;
+  font-size: 20px;
 }
 .email span {
   position: absolute;
-  top: -3px;
+  bottom: 0;
   left: 10px;
   z-index: 10;
   font-size: 20px;
-  color: #fffef2;
+  color: #fffef0;
+  opacity: 1;
+  transition: 0.3s;
 }
 .email button {
   background-color: transparent;
   border: 1px solid #fffef2;
   border-radius: 0 3px 3px 0;
   padding: 10px;
-  position: relative;
-  left: -5px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
 }
 .email svg {
   fill: #fffef2;
+  outline: none;
+}
+.error__age,
+.error__info,
+.error__ad,
+.error__email {
+  color: #ea6956;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  display: none;
+}
+.email input.error--color {
+  border-color: #ea6956;
+}
+.email button.error--color {
+  border-color: #ea6956;
 }
 
 /* order */

@@ -30,7 +30,7 @@ new Swiper('.sec5 .swiper', {
 
   scrollbar: {
     el: '.sec5 .inner .swiper .swiper-scrollbar',
-    dragSize: 500,
+    dragSize: 350,
   },
 });
 
