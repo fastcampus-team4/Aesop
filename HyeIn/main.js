@@ -31,7 +31,8 @@ const gnbCloseBtn = document.querySelector(".head-close-btn");
 
 const wordFade = document.querySelectorAll(".search-word-area>li");
 
-gnbSkin.addEventListener("click", (e) => {
+// COMMON FUNCTION
+function gnbClickFunc() {
   body.style.overflow = "hidden";
   gnbCloseBtn.classList.add("active");
   header.style.top = 0;
@@ -42,6 +43,22 @@ gnbSkin.addEventListener("click", (e) => {
   gnbDepthAll.forEach((each) => {
     each.classList.remove("up");
   });
+}
+// SEARCH-WORD FUNCTION
+function searchWordFunc() {
+  wordFade.forEach((fadeEl, index) => {
+    gsap.to(fadeEl, 0.1, {
+      delay: (index + 1) * 0.1,
+      left: -10 + "px",
+      opacity: 0,
+    });
+  });
+}
+
+gnbSkin.addEventListener("click", (e) => {
+  gnbClickFunc();
+  searchWordFunc();
+
   if (e.target == gnbSkin) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -52,26 +69,11 @@ gnbSkin.addEventListener("click", (e) => {
     gnbDepth.classList.remove("open");
     gnbSkin.classList.remove("click");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbBody.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbBody) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -81,27 +83,11 @@ gnbBody.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
-3;
 gnbHair.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbHair) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -111,26 +97,11 @@ gnbHair.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbPerfume.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbPerfume) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -140,27 +111,11 @@ gnbPerfume.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  console.log(e.target);
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbHome.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbHome) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -170,26 +125,11 @@ gnbHome.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbKit.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbKit) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -199,26 +139,11 @@ gnbKit.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbGift.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbGift) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -228,26 +153,11 @@ gnbGift.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbRead.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbRead) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -257,26 +167,11 @@ gnbRead.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbStore.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
+  gnbClickFunc();
+  searchWordFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbStore) {
     header.classList.add("fixed");
     gnbDepth.classList.add("open");
@@ -286,27 +181,10 @@ gnbStore.addEventListener("click", (e) => {
     header.classList.remove("fixed");
     gnbDepth.classList.remove("open");
   }
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 gnbSearch.addEventListener("click", (e) => {
-  body.style.overflow = "hidden";
-  gnbCloseBtn.classList.add("active");
-  header.style.top = 0;
-  header.classList.add("fixed");
+  gnbClickFunc();
 
-  gnbMenuAll.forEach((each) => {
-    each.classList.remove("click");
-  });
-  gnbDepthAll.forEach((each) => {
-    each.classList.remove("up");
-  });
   if (e.target == gnbSearch) {
     gnbDepth.classList.add("open");
     gnbSearchCont.classList.add("up");
@@ -333,18 +211,11 @@ gnbCloseBtn.addEventListener("click", () => {
   gnbDepthAll.forEach((each) => {
     each.classList.remove("up");
   });
+  searchWordFunc();
   header.classList.remove("fixed");
   gnbDepth.classList.remove("open");
   gnbCloseBtn.classList.remove("active");
   body.style.overflowY = "scroll";
-  /* SEARCH-WORD */
-  wordFade.forEach((fadeEl, index) => {
-    gsap.to(fadeEl, 0.1, {
-      delay: (index + 1) * 0.1,
-      left: -10 + "px",
-      opacity: 0,
-    });
-  });
 });
 
 /* STORE__INPUT */
@@ -488,7 +359,7 @@ function emailCheckFrom(email) {
   return email != "" && email != "undefined" && regex.test(email);
 }
 // EMAIL BTN, INPUT ENTER COMMON FUNCTION
-function emailCheckFromCommon() {
+function emailCheckFromgnbClickFunc() {
   let email = inputEmail.value;
   if (email == "" || email == "undefined") {
     errorEmail.style.display = "block";
@@ -522,12 +393,12 @@ window.addEventListener("click", (e) => {
 inputEmail.addEventListener("keydown", (e) => {
   if (e.code === "Enter") {
     e.preventDefault();
-    emailCheckFromCommon();
+    emailCheckFromgnbClickFunc();
   }
 });
 // INPUT BTN CLICK
 inputBtn.addEventListener("click", () => {
-  emailCheckFromCommon();
+  emailCheckFromgnbClickFunc();
 
   for (let i = 0; i < 3; i++) {
     if (inputElAll[i].checked) {
