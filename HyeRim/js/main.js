@@ -237,7 +237,7 @@ document.addEventListener('scroll', function() {
       headerEl.classList.add('on');
     })
   }
-
+  
   // const classListCheckEl = document.querySelectorAll('.main-menu > li');
 
   // function classCheckFunc() {
@@ -261,7 +261,7 @@ document.addEventListener('scroll', function() {
   //   headerMoving('down');
   //   headerEl.style.top = '-50px';
   // }
-
+  
   prevScrollTop = nextScrollTop;
 })
 
