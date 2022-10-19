@@ -352,7 +352,7 @@ header {
   position: relative;
 }
 .gnb-main-content .gnb-main-content-txt li a::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -382,7 +382,7 @@ header {
   position: relative;
 }
 .gnb-main-content-txt .content-read-txt-rest.before li::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -472,11 +472,7 @@ header {
 .gnb-main-area.search .gnb-main-content.search .search-word {
   margin-top: 32px;
 }
-.gnb-main-area.search
-  .gnb-main-content.search
-  .search-word
-  .search-word-area
-  li {
+.gnb-main-area.search .gnb-main-content.search .search-word .search-word-area li {
   margin-bottom: 15px;
   font-size: 14px;
   color: #666;
@@ -484,19 +480,10 @@ header {
   left: -10px;
   opacity: 0;
 }
-.gnb-main-area.search
-  .gnb-main-content.search
-  .search-word
-  .search-word-area
-  li:first-child {
+.gnb-main-area.search .gnb-main-content.search .search-word .search-word-area li:first-child {
   margin-bottom: 25px;
 }
-.gnb-main-area.search
-  .gnb-main-content.search
-  .search-word
-  .search-word-area
-  li
-  a {
+.gnb-main-area.search .gnb-main-content.search .search-word .search-word-area li a {
   font-size: 24px;
 }
 
@@ -943,17 +930,17 @@ footer {
 #marketing {
   display: none;
 }
-input[type="checkbox"] + label span {
+input[type='checkbox'] + label span {
   display: inline-block;
   width: 15px;
   height: 15px;
   border: 1px solid #fffef2;
   cursor: pointer;
 }
-input[type="checkbox"] + label span:active {
+input[type='checkbox'] + label span:active {
   outline: 2px solid #fff;
 }
-input[type="checkbox"]:checked + label span {
+input[type='checkbox']:checked + label span {
   background: url(../img/check-mark.png) no-repeat center;
   background-size: 15px;
 }
