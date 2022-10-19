@@ -15,6 +15,14 @@ span {
   display: inline-block;
 }
 
+img {
+  display: block;
+}
+
+video {
+  display: block;
+}
+
 section {
   margin-bottom: 200px;
   font-size: 15px;
@@ -366,6 +374,10 @@ header .nav-panel {
   align-items: start;
   overflow: hidden;
   display: none;
+}
+
+header .nav-panel.on {
+  display: block;
 }
 
 header .nav-panel h2 {
@@ -942,7 +954,7 @@ header #search .pop-search__list li:hover {
 }
 
 .perfume .perfume__list li a img {
-  width: 95%;
+  width: 260px;
   margin: 0 auto;
 }
 
@@ -1143,6 +1155,11 @@ header #search .pop-search__list li:hover {
   width: 100px;
   height: 20px;
 }
+
+/* .contents video,
+.contents img {
+  width: 500px;
+} */
 
 /* FOOTER */
 footer {
