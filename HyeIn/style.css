@@ -89,11 +89,11 @@ header {
 .head-bottom.fixed {
   z-index: 100000000000;
   position: fixed;
-  top: 0;
   background-color: #fffef2;
   border-bottom: 1px solid rgba(51, 51, 51, 0.2);
   color: #333;
   fill: #333;
+  top: 0;
 }
 .head-bottom.scroll--fixed {
   z-index: 100000000000;
@@ -223,20 +223,21 @@ header {
 
 /* GNB-MAIN */
 .gnb-main {
-  position: fixed;
+  position: absolute;
   top: 81px;
   left: 0;
   width: 100vw;
   height: 0;
   opacity: 0;
   background-color: #f7f1ec;
-  transition: 0.5s;
   z-index: -1000;
+  transition: 0.5s;
 }
 .gnb-main.open {
   height: calc(100vh - 80px);
   z-index: 1000;
   opacity: 1;
+  position: fixed;
 }
 .gnb-main .gnb-main-area {
   display: flex;
@@ -319,24 +320,48 @@ header {
 }
 
 .gnb-main-area .gnb-main-content {
-  padding-top: 80px;
-  padding-left: 40px;
-  width: 70vw;
+  padding: 80px 40px;
+  width: 70%;
+  height: 856px;
   display: flex;
-  position: relative;
+  box-sizing: border-box;
 }
-.gnb-main-area .gnb-main-img img {
+.gnb-main-area .gnb-main-img {
   position: absolute;
   top: 0;
   right: 0;
-  width: 32vw;
+  width: 30%;
+  height: 856px;
+}
+.gnb-main-area .gnb-main-img img {
+  width: 600px;
+  height: 100%;
 }
 .gnb-main-area .gnb-main-content .logo {
-  margin-right: 215px;
+  width: 40%;
 }
-.gnb-main-content .gnb-main-content-txt {
-  margin-top: 10px;
-  margin-right: 58px;
+.gnb-main-content .gnb-main-content-txt.first {
+  width: 33.33%;
+}
+.gnb-main-content .gnb-main-content-txt.second {
+  width: calc(100% - 33.3333%);
+}
+.gnb-main-content
+  .gnb-main-content-txt.second
+  .gnb-main-content-txt-second-top {
+  display: flex;
+}
+.gnb-main-content
+  .gnb-main-content-txt.second
+  .gnb-main-content-txt-second-top
+  .gnb-main-content-txt:first-child {
+  width: 50%;
+}
+.gnb-main-content
+  .gnb-main-content-txt.second
+  .gnb-main-content-txt-second-top
+  .gnb-main-content-txt:last-child {
+  width: 43%;
 }
 .gnb-main-content .gnb-main-content-txt .gnb-main-content-txt-one {
   margin-bottom: 45px;
@@ -346,7 +371,6 @@ header {
   font-size: 18px;
   line-height: 25px;
   margin-bottom: 14px;
-  width: 250px;
 }
 .gnb-main-content .gnb-main-content-txt li a {
   position: relative;
@@ -364,8 +388,49 @@ header {
 .gnb-main-content .gnb-main-content-txt li a:hover::after {
   width: 100%;
 }
-
+/* CONTENT-BOTTOM */
+.gnb-main-content-bottom {
+  position: sticky;
+  right: 0;
+  top: 1000px;
+  /*  margin-top: 50px; */
+}
+.gnb-main-content-bottom:hover h5::after {
+  width: 100%;
+}
+.gnb-main-content-bottom p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+.gnb-main-content-bottom h5 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+.gnb-main-content-bottom h5::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 1px;
+  background-color: #252525;
+  transition: 0.5s;
+}
+.gnb-main-content-bottom h5 svg {
+  fill: #666;
+}
+.gnb-main-content-bottom img {
+  width: 23vw;
+  display: block;
+}
 /* READ ver */
+.gnb-main-area.read .gnb-main-content-txt.first {
+  margin-right: 2vw;
+}
 .gnb-main-content-txt .content-read-txt-first {
   margin-bottom: 47px;
 }
@@ -378,11 +443,10 @@ header {
 .gnb-main-content-txt .content-read-txt-rest {
   margin-bottom: 20px;
 }
-.gnb-main-content-txt .content-read-txt-rest.before li {
+.gnb-main-content-txt .content-read-txt-rest.before li a {
   position: relative;
 }
-.gnb-main-content-txt .content-read-txt-rest.before li::before {
-  content: '';
+
   position: absolute;
   left: 0;
   bottom: 0;
@@ -391,11 +455,8 @@ header {
   background-color: #252525;
   transition: 0.5s;
 }
-.gnb-main-content-txt .content-read-txt-rest.before li:hover::before {
+.gnb-main-content-txt .content-read-txt-rest li a:hover::before {
   width: 100%;
-}
-.gnb-main-content-txt .content-read-txt-rest.before li a::after {
-  display: none;
 }
 .gnb-main-content-txt .content-read-txt-rest h5 {
   font-size: 14px;
@@ -487,38 +548,17 @@ header {
   font-size: 24px;
 }
 
-/* CONTENT-BOTTOM */
-.gnb-main-content .gnb-main-content-bottom {
-  position: absolute;
-  right: 220px;
-  bottom: 65px;
-}
-.gnb-main-content .gnb-main-content-bottom p {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 15px;
-}
-.gnb-main-content .gnb-main-content-bottom h5 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 20px;
-}
-.gnb-main-content .gnb-main-content-bottom h5 svg {
-  fill: #666;
-}
-.gnb-main-content .gnb-main-content-bottom img {
-  width: 23vw;
-}
-
 /* MAIN */
-.main-back-img {
-  width: 100%;
-  height: 100%;
+.main-banner {
+  overflow-x: hidden;
+}
+.main-banner .main-back-img {
+  width: 1920px;
   position: relative;
   top: -200px;
   z-index: -10;
 }
-.main-banner-wrap {
+.main-banner .main-banner-wrap {
   position: absolute;
   top: 225px;
   left: 40px;
@@ -658,7 +698,7 @@ header {
   margin-top: 190px;
 }
 .section2 .sec2-txt {
-  width: 40%;
+  width: 35%;
   padding-left: 80px;
 }
 .sec2-txt p {
@@ -667,13 +707,18 @@ header {
 }
 .sec2-txt h2 {
   font-size: 30px;
+  line-height: 40px;
+
   margin-bottom: 30px;
 }
 .sec2-txt > div {
   margin-bottom: 30px;
+  line-height: 30px;
 }
 .section2 video {
-  width: 60%;
+  width: 65%;
+  padding-left: 5%;
+  box-sizing: border-box;
 }
 .sec2-txt .btn svg {
   margin-left: 200px;
@@ -823,7 +868,7 @@ header {
   margin-left: 130px;
 }
 .section5 .swiper {
-  width: 1100px;
+  width: 60%;
   margin: 0;
 }
 .section5 .swiper-slide img {
@@ -887,9 +932,6 @@ header {
 
 .section5 .swiper .swiper-scrollbar .swiper-scrollbar-drag {
   background-color: rgba(0, 0, 0, 0.6);
-  /* transition-duration: 5s; 
-  scrollbar-drag 가 움직일 때의 duration 에 줘야 해서 안 먹는 듯
-  */
 }
 
 /* FOOTER */

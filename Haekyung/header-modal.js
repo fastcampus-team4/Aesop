@@ -1,5 +1,4 @@
 // HEADER-MODAL
-// const hBtn = document.querySelectorAll('.h-btn');
 const hBtn1 = document.querySelector('.h-btn.skincare');
 const hBtn2 = document.querySelector('.h-btn.body');
 const hBtn3 = document.querySelector('.h-btn.hair');
@@ -23,14 +22,14 @@ const hModalKit = document.querySelector('#modal-kit');
 const hModalGift = document.querySelector('#modal-gift');
 const hModalRead = document.querySelector('#modal-read');
 
+//클릭한 메뉴를 제외하고 다른 메뉴 다 닫기
 const removeOpens = function (except) {
   document.querySelector('.shipping-banner').style.display = 'none';
   document.querySelector('body').style.overflow = 'hidden';
   hModal.classList.add('on');
+  gsap.fromTo('.header-modal.on', 0.5, { height: 0, scaleY: 0 }, { scaleY: 1 });
   const opens = document.querySelectorAll('.open');
-  [].forEach.call(opens, function (open) {
-    open.classList.remove('open');
-  });
+  opens.forEach((open) => open.classList.remove('open'));
   except.classList.add('open');
   hModalCloseBtn.classList.add('open');
   modalOpenHeader.classList.add('white-version');
@@ -61,6 +60,7 @@ hBtn8.addEventListener('click', function () {
   removeOpens(hModalRead);
 });
 
+// 메뉴 닫기버튼
 hModalCloseBtn.addEventListener('click', function () {
   document.querySelector('.shipping-banner').style.display = 'block';
   document.querySelector('body').style.overflow = 'scroll';
@@ -71,27 +71,6 @@ hModalCloseBtn.addEventListener('click', function () {
 });
 
 // SCROLL - HEADER
-
-// let before = [];
-
-// window.addEventListener('scroll', (ev) => {
-//   if (before.pop() < window.scrollY) console.log('Down Scroll');
-//   else console.log('Up Scroll');
-//   before.push(window.scrollY);
-// });
-
-// let before = [];
-
-// window.addEventListener('scroll', (ev) => {
-//   if (before.pop() <= window.scrollY)
-//     modalOpenHeader.classList.remove('white-version');
-//   else if (window.pageYOffset == 0)
-//     modalOpenHeader.classList.remove('white-version');
-//   else modalOpenHeader.classList.add('white-version');
-//   modalOpenHeader.style.transform = 'translateY(-80px)';
-//   setTimeout(() => (modalOpenHeader.style.transform = 'translateY(0)'), 300);
-//   before.push(window.scrollY);
-// });
 
 let currentDirection = ''; // 현재의 방향을 나타내는 변수
 let lastScrollTop = 0; // 방향을 구하기 위해 사용되는 변수
@@ -110,7 +89,7 @@ window.addEventListener('scroll', function () {
       );
       setTimeout(() => modalOpenHeader.classList.remove('white-version'), 100);
     }
-  } else if (this.window.pageYOffset == 0) {
+  } else if (window.pageYOffset == 0) {
     modalOpenHeader.classList.remove('white-version');
   } else if (currentPos < lastScrollTop) {
     // 위로 스크롤 중
@@ -126,4 +105,48 @@ window.addEventListener('scroll', function () {
     }
   }
   lastScrollTop = currentPos; // 방향을 구하기 위해 마지막 스크롤 지점을 저장
+});
+
+// FOOTER-EMAIL-BUTTON
+const emailBtn = document.querySelector('#email-check');
+const emailAge = document.querySelector('#age');
+const emailPersonalInfo = document.querySelector('#personal-info');
+const emailMarketing = document.querySelector('#marketing');
+const emailAddress = document.querySelector('#email-address');
+const emailAgeError = document.querySelector('.age-error');
+const emailPersonalInfoError = document.querySelector('.personal-info-error');
+const emailMarketingError = document.querySelector('.marketing-error');
+const emailAddressError = document.querySelector('.email-address-error');
+
+function validateEmail(email) {
+  var re =
+    /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  return re.test(email);
+}
+
+emailBtn.addEventListener('click', function () {
+  if (!emailAge.checked) {
+    emailAgeError.classList.add('error-on');
+  } else {
+    emailAgeError.classList.remove('error-on');
+  }
+  if (!emailPersonalInfo.checked) {
+    emailPersonalInfoError.classList.add('error-on');
+  } else {
+    emailPersonalInfoError.classList.remove('error-on');
+  }
+  if (!emailMarketing.checked) {
+    emailMarketingError.classList.add('error-on');
+  } else {
+    emailMarketingError.classList.remove('error-on');
+  }
+  if (!validateEmail(emailAddress.value)) {
+    emailAddressError.classList.add('error-on');
+    document.querySelector('.email-address').classList.add('error-on');
+    emailBtn.classList.add('error-on');
+  } else {
+    emailAddressError.classList.remove('error-on');
+    document.querySelector('.email-address').classList.remove('error-on');
+    emailBtn.classList.remove('error-on');
+  }
 });

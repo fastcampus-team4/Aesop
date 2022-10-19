@@ -26,6 +26,12 @@
 
     <script defer src="../Haekyung/main.js"></script>
     <script defer src="../Haekyung/header-modal.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+      integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- <script defer src="../Haekyung/test.js"></script> -->
   </head>
   <body>
@@ -810,6 +816,11 @@
                 </label>
               </li>
               <li>
+                <div class="age-error error-msg">
+                  본인의 만 14세 이상 여부를 확인해주세요.
+                </div>
+              </li>
+              <li>
                 <label for="personal-info">
                   <input
                     type="checkbox"
@@ -818,6 +829,9 @@
                   />개인정보수집 및 이용에 동의합니다 (필수)
                 </label>
               </li>
+              <div class="personal-info-error error-msg">
+                이메일을 통한 광고성 정보 수신을 원하시는 경우 필수 항목입니다.
+              </div>
               <li>
                 <div class="personal-info">
                   이솝은 이솝의 제품, 서비스 및 홍보 행사 관련 정보를 마케팅
@@ -827,11 +841,17 @@
                   없습니다.
                 </div>
               </li>
+              <li></li>
               <li>
                 <label for="marketing">
                   <input type="checkbox" name="" id="marketing" />마케팅 정보
                   수신에 동의합니다 (필수)
                 </label>
+              </li>
+              <li>
+                <div class="marketing-error error-msg">
+                  이메일을 통한 광고성 정보 수신을 원하시는 경우 필수 항목입니다
+                </div>
               </li>
               <li>
                 <div class="marketing-info">
@@ -841,9 +861,18 @@
               <li>
                 <div class="email-address">
                   <label for="email-address">
-                    <input name="" id="email-address" /><span>이메일 주소</span>
-                    <button>→</button>
+                    <input
+                      name=""
+                      id="email-address"
+                      placeholder="이메일 주소"
+                    />
+                    <button id="email-check">→</button>
                   </label>
+                </div>
+              </li>
+              <li>
+                <div class="email-address-error error-msg">
+                  유효한 이메일 주소를 입력하세요
                 </div>
               </li>
             </ul>

@@ -264,7 +264,6 @@ header {
   background-color: #333;
   color: #fff;
   height: 80px;
-  position: relative;
   padding: 0 40px;
   box-sizing: border-box;
   font-size: 14px;
@@ -279,6 +278,7 @@ header.on {
   background-color: #fffef2;
   color: #333;
   border-bottom: 1px solid #ccc;
+  z-index: 10;
 }
 
 header .main-menu {
@@ -347,10 +347,10 @@ header .header__closeBtn span {
   font-size: 20px;
   margin-left: 5px;
 }
-
+/* 
 header.on .header__closeBtn {
   display: block;
-}
+} */
 
 /* NAV */
 header .nav-panel {
@@ -1243,7 +1243,7 @@ footer .material-symbols-outlined {
 footer .chbox-area {
   display: flex;
   align-content: center;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 footer .chbox-area label {
@@ -1259,7 +1259,6 @@ footer .text-box {
   padding: 10px;
   box-sizing: border-box;
   line-height: 1.7;
-  margin-top: -15px;
 }
 
 footer .text-box.private__con {
@@ -1272,7 +1271,11 @@ footer .email-addr {
   border-radius: 3px;
   display: flex;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
+}
+
+footer .email-addr.on {
+  border-color: #ea6956;
 }
 
 footer .email-addr input {
@@ -1283,11 +1286,13 @@ footer .email-addr input {
   color: #fffef2;
 }
 
-footer .email-addr label {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 10px;
+footer .email-addr input.on {
+  border-color: #ea6956;
+}
+
+footer .email-addr input::placeholder {
+  font-size: 16px;
+  color: #fff;
 }
 
 footer .email-addr button {
@@ -1299,6 +1304,11 @@ footer .email-addr button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+footer .email-addr .error-message {
+  position: absolute;
+  bottom: -25px;
 }
 
 footer .footer__locate p {
@@ -1320,4 +1330,16 @@ footer .footer__possibility P a {
   color: #fffef2;
   padding: 30px;
   font-size: 16px;
+}
+
+footer .error-message {
+  width: 100%;
+  color: #ea6956;
+  margin-top: 5px;
+  margin-left: 5px;
+  display: none;
+}
+
+footer .error-message.on {
+  display: block;
 }

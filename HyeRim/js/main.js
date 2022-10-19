@@ -171,18 +171,21 @@ $(document).ready(function() {
         $('.store__load__input label').addClass('on'); 
       }
     });
- 
+
     if ($(this).parent('li.search-area').hasClass('on')) {
       $('#searchInput').focus();
       $('.pop-search').addClass('on');
     } else {
       $('.pop-search').removeClass('on');
     }
-  })
+
+    mainMenuCloseBtn.css('display','block');
+  });
   
   mainMenuCloseBtn.on('click', function(e) {
     e.preventDefault();
 
+    mainMenuCloseBtn.css('display','none');
     $('header').removeClass('on');
     mainMenuPanel.fadeOut(500);
     mainMenuLi.parent('li').removeClass('on');
@@ -190,6 +193,8 @@ $(document).ready(function() {
 
     if(! $('header').hasClass('on')) {
       $('body').css('overflow-y', 'visible')
+    } else {
+      $(this).addClass('on')
     }
 
   })
@@ -211,20 +216,63 @@ let prevScrollTop = 0;
 
 document.addEventListener('scroll', function() {
   let nextScrollTop = window.scrollY;
-  
+
+  console.log(nextScrollTop);
+
   if(nextScrollTop > prevScrollTop) {
     headerMoving('down');
     if(nextScrollTop > 130) {
-      headerEl.style.top = -50 + 'px';
+      headerEl.style.top = '-50px';
     }
   } else if (nextScrollTop < prevScrollTop) {
     headerMoving('up');
-    headerEl.style.top = 0 + 'px';
-
-    if(nextScrollTop <= 130) {
+    headerEl.style.top = 0;
+    if(nextScrollTop == 0) {
       headerEl.classList.remove('on');
-      headerEl.style.top = 0 + 'px';
+    } else if(nextScrollTop >= 1270) {
     }
   }
+
   prevScrollTop = nextScrollTop;
+})
+
+
+// ERROR MESSAGE
+const inputValue = document.querySelectorAll('.inputValue')
+const errorMessage = document.querySelectorAll('.error-message');
+const emailAddr = document.querySelector('footer .email-addr')
+const emailInput = document.querySelector('.email-addr input')
+const emailBtn  = document.querySelector('.email-addrBtn');
+
+emailBtn.addEventListener('click', function() {
+  for(let i = 0; i < inputValue.length -1 ; i += 1) {
+    if(! inputValue[i].checked) {
+      errorMessage[i].classList.add('on')
+    } else {
+      errorMessage[i].classList.remove('on')
+    }
+  }
+  
+  const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+  const emailValue = emailInput.value;
+  if(! emailValue) {
+    errorMessage[3].classList.add('on');
+    emailAddr.classList.add('on');
+    emailInput.classList.add('on');
+  } else {
+    errorMessage[3].classList.remove('on');
+    emailAddr.classList.remove('on');
+    emailInput.classList.remove('on');
+
+    if (emailValue.match(regExp) != null) {
+      errorMessage[3].classList.remove('on')
+      emailAddr.classList.remove('on');
+      emailInput.classList.remove('on');
+    } else {
+      errorMessage[3].classList.add('on');
+      emailAddr.classList.add('on');
+      emailInput.classList.add('on');
+    }
+  }
 })
