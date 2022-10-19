@@ -17,7 +17,7 @@ new Swiper('#perfume-section .swiper', {
 
 // Selection section Swiper
 new Swiper('#selection-section .swiper', {
-  slidesPerView: 4,
+  slidesPerView: 3.3,
   spaceBetween: 20,
   scrollbar: {
     el: '#selection-section .swiper-scrollbar',
@@ -112,7 +112,6 @@ const closeModal = () => {
 overlay.addEventListener('click', closeModal);
 modalBtn.addEventListener('click', closeModal);
 
-// GNB 각 카테고리 시, 해당 GNB modal창 오픈 및 Header(최상단 띠배너) 사라짐
 // Gnb Modal elements
 const skinCareModalEl = document.querySelector('.gnb-item .skin-care-modal');
 const bodyHandModalEl = document.querySelector('.gnb-item .body-hand-modal');
@@ -144,17 +143,36 @@ const gnbContainer = document.querySelector('.gnb .gnb-container');
 const gnbBox = document.querySelector('.gnb .gnb-box');
 const gnbModals = document.querySelectorAll('.gnb-item .gnb-modal');
 
-// SkinCar category
-const openSkinCare = () => {
+// GNB 각 카테고리 클릭시, 모든 gnb-item 및 gnb-modal 요소의 open 클래스 제거
+function close() {
   gnbModals.forEach((gnbModal) => {
     gnbModal.classList.remove('open');
   });
+  gnbItemEls.forEach((gnbItemEl) => {
+    gnbItemEl.classList.remove('open');
+  });
+}
+// GNB modal창 오픈 및 Header(최상단 띠배너) 사라짐
+// SkinCar category
+const openSkinCare = () => {
+  close();
+  // GNB modal창 오픈
   skinCareModalEl.classList.add('open');
   if (skinCareModalEl.classList.contains('open')) {
+    // close 버튼 나타나게 하기
     closeBtn.classList.remove('hidden');
+
+    // body태그 스크롤 막기
     body.style.overflow = 'hidden';
+
+    // Header(최상단 띠배너) 사라짐
     headerEl.classList.add('hidden');
+
+    // gnb 배경색상 및 글자색 변경
     gnbBox.classList.add('open');
+
+    // 밑줄 생성
+    skinCareEl.classList.add('open');
   } else {
     gnbBox.style.position = 'fixed';
   }
@@ -163,143 +181,127 @@ skinCareEl.addEventListener('click', openSkinCare);
 
 // BodyHand category
 const openBodyHand = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   bodyHandModalEl.classList.add('open');
   if (bodyHandModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    bodyHandEl.classList.add('open');
   }
 };
 bodyHandEl.addEventListener('click', openBodyHand);
 
 // Hair category
 const openHair = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   hairModalEl.classList.add('open');
   if (hairModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    hairEl.classList.add('open');
   }
 };
 hairEl.addEventListener('click', openHair);
 
 // Perfume categoty
 const openPerfume = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   perfumeModalEl.classList.add('open');
   if (perfumeModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    perfumeEl.classList.add('open');
   }
-  console.log('click');
 };
 perfumeEl.addEventListener('click', openPerfume);
 
 // Home categoty
 const openHome = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   homeModalEl.classList.add('open');
   if (homeModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    homeEl.classList.add('open');
   }
-  console.log('click');
 };
 homeEl.addEventListener('click', openHome);
 
 // Kit categoty
 const openKit = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   kitModalEl.classList.add('open');
   if (kitModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    kitEl.classList.add('open');
   }
-  console.log('click');
 };
 kitEl.addEventListener('click', openKit);
 
 // Gift categoty
 const openGift = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   giftModalEl.classList.add('open');
   if (giftModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    giftEl.classList.add('open');
   }
-  console.log('click');
 };
 giftEl.addEventListener('click', openGift);
 
 // Reading categoty
 const openReading = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   readingModalEl.classList.add('open');
   if (readingModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    readingEl.classList.add('open');
   }
-  console.log('click');
 };
 readingEl.addEventListener('click', openReading);
 
 // Store categoty
 const openStore = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   storeModalEl.classList.add('open');
   if (storeModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    storeEl.classList.add('open');
   }
-  console.log('click');
 };
 storeEl.addEventListener('click', openStore);
 
 // Search categoty
 const openSearch = () => {
-  gnbModals.forEach((gnbModal) => {
-    gnbModal.classList.remove('open');
-  });
+  close();
   searchModalEl.classList.add('open');
   if (searchModalEl.classList.contains('open')) {
     closeBtn.classList.remove('hidden');
     body.style.overflow = 'hidden';
     headerEl.classList.add('hidden');
     gnbBox.classList.add('open');
+    searchEl.classList.add('open');
   }
-  console.log('click');
 };
 searchEl.addEventListener('click', openSearch);
 
@@ -359,7 +361,7 @@ emailInputEl.addEventListener('blur', () => {
   emailInputEl.setAttribute('placeholder', '이메일주소');
 });
 
-// 제어요소
+// 체크박스 제어요소
 const checkinputEls = document.querySelectorAll('#footer .check');
 // 체크박스 체크하지 않았을경우, check message 띄움
 const checkMsgEls = document.querySelectorAll('#footer .check-msg');
@@ -371,23 +373,22 @@ emailBtnEl.addEventListener('click', () => {
   checkinputEls.forEach((inputBoxEl, index) => {
     if (checkinputEls[index].checked) {
       checkMsgEls[index].style.display = 'none';
-      emailEl.classList.remove('border--red');
     } else {
       checkMsgEls[index].style.display = 'block';
-      emailEl.classList.add('border--red');
     }
   });
-  email();
 });
 
-//
+// 이메일 주소가 유효하지 않을 경우, check message 띄움
+const checkEmailMsgEl = document.querySelector('#footer .check-msg.last');
 function email() {
-  const x = document.querySelector('#footer #newsletter-email');
-  if (x.required) {
-    x.classList.remove('border--red');
+  const bol = emailInputEl.validity.patternMismatch;
+  if (!bol && emailInputEl.value) {
+    emailEl.classList.remove('border--red');
+    checkEmailMsgEl.style.display = 'none';
   } else {
-    x.classList.add('border--red');
+    emailEl.classList.add('border--red');
+    checkEmailMsgEl.style.display = 'block';
   }
 }
-
 emailBtnEl.addEventListener('click', email);
