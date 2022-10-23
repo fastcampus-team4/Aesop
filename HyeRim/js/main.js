@@ -1,4 +1,5 @@
 // SWIPER
+
 // perfume
 new Swiper('.perfume.swiper', {
   loop: false,
@@ -153,6 +154,7 @@ $(document).ready(function() {
 
     if ($('header').hasClass('on')) {
       $('body').css('overflow-y', 'hidden')
+      $('body').css('padding-right', '20px')
     }
 
     if ($(this).parent('li').hasClass('on')) {
@@ -187,13 +189,13 @@ $(document).ready(function() {
 
     mainMenuCloseBtn.css('display','none');
     $('header').removeClass('on');
-    $('body').css('overflow-y', 'visible')
+    $('body').css({'overflow-y': 'visible', 'padding-right':'0'})
     mainMenuPanel.fadeOut(500);
     mainMenuLi.parent('li').removeClass('on');
     $('.pop-search').removeClass('on');
 
     if(! $('header').hasClass('on')) {
-      $('body').css('overflow-y', 'visible')
+      $('body').css({'overflow-y': 'visible', 'padding-right':'0'})
     } else {
       $(this).addClass('on')
     }
@@ -215,7 +217,8 @@ let headerMoving = function(direction) {
 const headerCloseBtn = document.querySelector('header .header__closeBtn');
 let prevScrollTop = 0;
 
-document.addEventListener('scroll', function() {
+document.addEventListener('scroll', function(e) {
+  e.preventDefault();
   let nextScrollTop = window.scrollY;
 
   console.log(nextScrollTop);
@@ -229,7 +232,9 @@ document.addEventListener('scroll', function() {
     headerMoving('up');
     headerEl.style.top = '0px';
 
-    headerCloseBtn.addEventListener('click', function() {
+    headerCloseBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+
       if(headerEl.style.top = '0px'){
         headerEl.classList.add('on');
       } else {
@@ -243,6 +248,7 @@ document.addEventListener('scroll', function() {
         headerEl.classList.remove('on');
       })
     }
+
   } else {
     headerEl.classList.remove('on');
   }
