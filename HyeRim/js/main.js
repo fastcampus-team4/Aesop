@@ -137,10 +137,11 @@ panelBackground.addEventListener('click', () => {
 // jquery
 $(document).ready(function() {
   // NAV
-  let mainMenu = $('.main-menu')
-  let mainMenuLi = mainMenu.find('> li > a');
-  let mainMenuPanel = mainMenu.find('.nav-panel');
-  let mainMenuCloseBtn = $('header .header__closeBtn');
+  const mainMenu = $('.main-menu')
+  const mainMenuLi = mainMenu.find('> li > a');
+  const mainMenuPanel = mainMenu.find('.nav-panel');
+  const mainMenuCloseBtn = $('header .header__closeBtn');
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
   mainMenuLi.on('click', function(e) {
     e.preventDefault();
@@ -154,7 +155,7 @@ $(document).ready(function() {
 
     if ($('header').hasClass('on')) {
       $('body').css('overflow-y', 'hidden')
-      $('body').css('padding-right', '20px')
+      $('body').css('padding-right', scrollbarWidth + 'px')
     }
 
     if ($(this).parent('li').hasClass('on')) {
