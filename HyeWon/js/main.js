@@ -46,7 +46,7 @@ new Swiper('#store-section .swiper', {
     // snapOnRelease: true,
   },
   pagination: {
-    el: '#store-section .swiper-pagination',
+    el: paginationEl,
     type: 'custom',
     renderCustom: function (swiper, current, total) {
       let text;
@@ -90,7 +90,7 @@ const headerBtn = document.querySelector('.header .header-btn');
 const modal = document.querySelector('.header .modal');
 
 const openModal = () => {
-  modal.classList.toggle('open');
+  modal.classList.add('open');
   if (modal.classList.contains('open')) {
     body.style.overflow = 'hidden';
   }
@@ -105,7 +105,7 @@ const modalBtn = document.querySelector('.modal .modal-btn');
 const closeModal = () => {
   modal.classList.remove('open');
   if (!modal.classList.contains('open')) {
-    body.style.overflow = 'scroll';
+    body.style.overflow = 'auto';
   }
 };
 
@@ -138,10 +138,10 @@ const searchEl = document.querySelector('.gnb-item.search');
 const closeBtn = document.querySelector('.gnb-item.close');
 
 const gnb = document.querySelector('.gnb');
-const gnbItemEls = document.querySelectorAll('.gnb .gnb-item');
-const gnbContainer = document.querySelector('.gnb .gnb-container');
-const gnbBox = document.querySelector('.gnb .gnb-box');
-const gnbModals = document.querySelectorAll('.gnb-item .gnb-modal');
+const gnbItemEls = document.querySelectorAll('.gnb-item');
+const gnbContainer = document.querySelector('.gnb-container');
+const gnbBox = document.querySelector('.gnb-box');
+const gnbModals = document.querySelectorAll('.gnb-modal');
 
 // GNB 각 카테고리 클릭시, 모든 gnb-item 및 gnb-modal 요소의 open 클래스 제거
 function close() {
