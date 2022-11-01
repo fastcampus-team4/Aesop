@@ -33,6 +33,7 @@ body {
   line-height: 1.5;
   width: 100%;
   height: 100%;
+  /* overflow-x: hidden; */
 }
 
 /* Typograhy */
@@ -129,7 +130,6 @@ h3 {
   color: var(--color-light-white);
   border-bottom: 1px solid transparent;
   padding: 0 35px;
-  font-size: var(--font-regular);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -179,15 +179,17 @@ h3 {
   content: '';
   display: block;
   position: relative;
-  bottom: -34px;
+  bottom: -32px;
   width: 0%;
   height: 2px;
   background-color: var(--color-semi-dark-gray);
-  /* visibility: hidden; */
+}
+
+.gnb-item > a.material-symbols-outlined::after {
+  bottom: -35px;
 }
 
 .gnb-item.open > a:not(:last-child)::after {
-  visibility: visible;
   width: 100%;
 }
 
@@ -670,8 +672,7 @@ h3 {
   top: 0;
   bottom: 0;
   margin: auto;
-  opacity: 0;
-  transition: 0.3s ease;
+  visibility: hidden;
 }
 
 #perfume-section .swiper-button-prev {
@@ -689,8 +690,24 @@ h3 {
 
 #perfume-section .inner:hover .swiper-button-prev,
 #perfume-section .inner:hover .swiper-button-next {
-  opacity: 1;
-  /* transform: translateX(50px); */
+  visibility: visible;
+}
+
+#perfume-section .swiper-button-prev {
+  transform: translateX(-80px);
+  transition: 0.3s;
+}
+
+#perfume-section .inner:hover .swiper-button-prev {
+  transform: translateX(0px);
+}
+
+#perfume-section .swiper-button-next {
+  transform: translateX(80px);
+  transition: 0.3s;
+}
+#perfume-section .inner:hover .swiper-button-next {
+  transform: translateX(0px);
 }
 
 .perfume__info {
@@ -876,13 +893,17 @@ h3 {
 
 #selection-section .swiper-button-prev,
 #selection-section .swiper-button-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
   width: 80px;
   height: 80px;
   background-color: var(--color-semi-dark-gray);
   outline: none;
   color: #fff;
   cursor: pointer;
-  opacity: 0;
+  visibility: hidden;
   transition: 0.3s ease;
 }
 
@@ -896,7 +917,26 @@ h3 {
 
 #selection-section .inner:hover .swiper-button-prev,
 #selection-section .inner:hover .swiper-button-next {
-  opacity: 1;
+  /* opacity: 1; */
+  visibility: visible;
+}
+
+#selection-section .inner .swiper-button-prev {
+  transform: translateX(-80px);
+  transition: 0.3s;
+}
+
+#selection-section .inner:hover .swiper-button-prev {
+  transform: translateX(0);
+}
+
+#selection-section .inner .swiper-button-next {
+  transform: translateX(80px);
+  transition: 0.3s;
+}
+
+#selection-section .inner:hover .swiper-button-next {
+  transform: translateX(0);
 }
 
 #selection-section .swiper-button-prev::after,
@@ -1032,14 +1072,30 @@ h3 {
   background-color: var(--color-semi-dark-gray);
   color: #fff;
   position: absolute;
-  top: 320px;
-  opacity: 0;
+  top: 225px;
+  visibility: hidden;
   transition: 0.3s ease;
 }
 
 #store-section .swiper:hover .swiper-button-prev,
 #store-section .swiper:hover .swiper-button-next {
-  opacity: 1;
+  visibility: visible;
+}
+
+#store-section .swiper .swiper-button-prev {
+  transform: translateX(-80px);
+}
+
+#store-section .swiper:hover .swiper-button-prev {
+  transform: translateX(0);
+}
+
+#store-section .swiper .swiper-button-next {
+  transform: translateX(80px);
+}
+
+#store-section .swiper:hover .swiper-button-next {
+  transform: translateX(0);
 }
 
 #store-section .swiper-button-prev {
@@ -1078,12 +1134,12 @@ h3 {
 /* Footer */
 #footer {
   padding: 50px 40px;
-  /* height: 780px; */
   background-color: var(--color-dark-gray);
   color: var(--color-light-white);
   font-size: var(--font-regular);
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  /* grid-template-rows: repeat(2, 1fr); */
+  grid-template-rows: auto 1fr;
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   border-bottom: 3px solid #d6d5cb;
