@@ -125,6 +125,7 @@ window.addEventListener(
     // scrollY가 0일때 최상단 위치
     let nextScrollTop = window.scrollY;
     console.log('window.scrollY: ', nextScrollTop);
+    const isActiveGNB = gnbBox.classList.contains('fixed');
     if (nextScrollTop === 0) {
       // 최상단에 위치하면 모든 효과 제거
       removeGnbBoxEffect();
@@ -137,9 +138,18 @@ window.addEventListener(
       // Gnb가 보이지 않을때, Gnb를 흰색으로 변경 및 fixed 시킴
       gnbBox.classList.add('gnb--white');
       gnbBox.style.position = 'fixed';
+      gnbBox.style.position = 'fixed';
     } else if (nextScrollTop > preScrollTop) {
       // 스크롤 내릴 때 실행
       gnbBox.style.position = 'absolute';
+      if (isActiveGNB) {
+        /**
+         * 닫기버튼을 누르면, overflow-y: hidden이 적용되면서 우측에 스크롤바가 사라짐
+         * 그러면 화면이 우측으로 살짝 커지면서 퍼센트 너비로 적용된 이미지 크기가 바뀌고, 그러면서 화면 스크롤이 살짝 움직임 -> 스크롤이 살짝 아래로 내려감
+         */
+        gnbBox.style.position = 'fixed';
+        gnbBox.classList.remove('fixed');
+      }
     }
     preScrollTop = nextScrollTop;
   }, 10)
